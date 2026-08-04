@@ -25,10 +25,10 @@ c-58 -20 -88 -48 -187 -178 -92 -121 -976 -1258 -1258 -1619 -112 -143 -208
 7103 c7 -3 16 -2 19 1 4 3 -2 6 -13 5 -11 0 -14 -3 -6 -6z M3214 7074 c-18
 -14 -18 -15 4 -4 12 6 22 13 22 15 0 8 -5 6 -26 -11z M4530 7015 c19 -19 36
 -35 39 -35 3 0 -10 16 -29 35 -19 19 -36 35 -39 35 -3 0 10 -16 29 -35z M3129
-7013 l-24 -28 28 24 c25 23 32 31 24 31 -2 0 -14 -12 -28 -27z" fill="#ffffff"/>
+7013 l-24 -28 28 24 c25 23 32 31 24 31 -2 0 -14 -12 -28 -27z" fill="#213547"/>
     </g>
   </svg>
   <text x="54" y="31" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="24" font-weight="700">
-    <tspan fill="#22C08E">Auth</tspan><tspan fill="#ffffff">Kit</tspan>
+    <tspan fill="#22C08E">Auth</tspan><tspan fill="#213547">Kit</tspan>
   </text>
 </svg>

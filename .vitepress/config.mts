@@ -14,7 +14,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: { light: '/logo-light.svg', dark: '/logo.svg' },
     siteTitle: false,
 
     nav: [
@@ -110,9 +110,10 @@ export default defineConfig({
       provider: 'local',
     },
 
+
     footer: {
       message: 'Released under the BSD-3-Clause License.',
-      copyright: 'Copyright © 2026-present alkeyio',
+      copyright: 'Copyright © 2026-present alkey.io',
     },
   },
 })
