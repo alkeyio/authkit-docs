@@ -9,12 +9,13 @@ export default defineConfig({
   lastUpdated: true,
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/authkit-docs/favicon.svg', type: 'image/svg+xml' }],
     ['meta', { name: 'theme-color', content: '#111111' }],
   ],
 
   themeConfig: {
     logo: '/logo.svg',
+    siteTitle: false,
 
     nav: [
       { text: 'Guide', link: '/guide/introduction' },

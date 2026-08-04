@@ -46,3 +46,7 @@ code {
 .VPHero .text {
   letter-spacing: -0.02em;
 }
+
+.VPNavBarTitle .logo {
+  height: 36px;
+}
