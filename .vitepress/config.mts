@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/authkit-docs/',
   title: 'AuthKit',
   description: 'A modular OAuth 2.0 / OpenID Connect server library for Go, structured around RFC-named packages.',
   lang: 'en-US',
