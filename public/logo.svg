@@ -32,6 +32,6 @@ c-58 -20 -88 -48 -187 -178 -92 -121 -976 -1258 -1258 -1619 -112 -143 -208
   </svg>
   <!-- AuthKit text -->
   <text x="54" y="31" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="24" font-weight="700">
-    <tspan fill="#22C08E">Auth</tspan><tspan fill="#ffffff">kit</tspan>
+    <tspan fill="#22C08E">Auth</tspan><tspan fill="#ffffff">Kit</tspan>
   </text>
 </svg>
