@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="m">
+      <!-- Left leg of A -->
+      <polygon points="14,4 18,4 11,29 5,29" fill="white"/>
+      <!-- Right leg of A -->
+      <polygon points="14,4 18,4 27,29 21,29" fill="white"/>
+      <!-- Keyhole circle cutout -->
+      <circle cx="16" cy="13.5" r="3.5" fill="black"/>
+    </mask>
+  </defs>
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="6" fill="#111111"/>
+  <!-- Green A with keyhole -->
+  <rect width="32" height="32" rx="6" fill="#3ECC8A" mask="url(#m)"/>
+</svg>
