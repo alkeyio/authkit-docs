@@ -76,5 +76,5 @@ grant, req, err := srv.ValidateTokenRequest(r)
 
 ## See also
 
-- [Guide: Getting Started](/guide/getting-started)
-- [Guide: Architecture](/guide/architecture)
+- [Guide: Getting Started](/docs/installation)
+- [Guide: Architecture](/docs/architecture)

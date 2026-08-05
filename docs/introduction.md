@@ -44,8 +44,8 @@ Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the
 
 ## Next steps
 
-- [Getting Started](/guide/getting-started) — install AuthKit and wire up your first flow.
-- [Architecture](/guide/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
+- [Getting Started](/docs/installation) — install AuthKit and wire up your first flow.
+- [Architecture](/docs/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
 - [OAuth 2.0 Flows](/concepts/oauth2-flows) — a refresher on the grants AuthKit implements.
 
 ## Contributing

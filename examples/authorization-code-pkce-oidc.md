@@ -63,5 +63,5 @@ mux.HandleFunc("POST /token", func(w http.ResponseWriter, r *http.Request) {
 
 ## Related
 
-- [Getting Started](/guide/getting-started) — the same flow, explained step by step.
+- [Getting Started](/docs/installation) — the same flow, explained step by step.
 - [Client Credentials](/examples/client-credentials) — for machine-to-machine calls instead.

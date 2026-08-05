@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/getting-started
+      link: /docs/installation
     - theme: alt
       text: Why AuthKit
-      link: /guide/introduction
+      link: /docs/introduction
     - theme: alt
       text: View on GitHub
       link: https://github.com/alkeyio/authkit
@@ -57,7 +57,7 @@ srv.CreateTokenResponse(r, w)                // POST /token
 go get github.com/alkeyio/authkit
 ```
 
-Requires **Go 1.23+**. See the [Getting Started](/guide/getting-started) guide to wire up your first Authorization Code + PKCE + OIDC flow.
+Requires **Go 1.23+**. See the [Getting Started](/docs/installation) guide to wire up your first Authorization Code + PKCE + OIDC flow.
 
 </div>
 

@@ -47,4 +47,4 @@ The shape is always the same: implement the interface(s) for the point in the re
 
 - [PKCE](/concepts/pkce) — what the built-in PKCE extension actually validates.
 - [OpenID Connect](/concepts/oidc) — what the OIDC extension adds to a token response.
-- [Architecture](/guide/architecture) — how extensions fit between `Config` and `Server`.
+- [Architecture](/docs/architecture) — how extensions fit between `Config` and `Server`.
