@@ -1,4 +1,4 @@
-# Getting Started
+# Installation
 
 This page walks through installing AuthKit and standing up an Authorization Code flow with PKCE and OIDC — the combination most first-time integrations reach for.
 

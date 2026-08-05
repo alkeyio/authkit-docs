@@ -50,3 +50,27 @@ code {
 .VPNavBarTitle .logo {
   height: 36px;
 }
+
+.VPSidebarItem.level-0 > .item {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+/* Sidebar hierarchy font sizes */
+.VPSidebarItem.level-0 > .item .text {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.VPSidebarItem.level-1 > .item .text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.VPSidebarItem.level-2 > .item .text {
+  font-size: 13px;
+  font-weight: 400;
+}

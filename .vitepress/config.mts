@@ -1,10 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 const enNav = [
-  { text: 'Guide', link: '/guide/introduction' },
-  { text: 'Concepts', link: '/concepts/oauth2-flows' },
-  { text: 'API Reference', link: '/api/server' },
-  { text: 'Examples', link: '/examples/authorization-code-pkce-oidc' },
+  { text: 'Docs', link: '/docs/introduction' },
   {
     text: 'v0.x',
     items: [
@@ -15,10 +12,7 @@ const enNav = [
 ]
 
 const viNav = [
-  { text: 'Hướng dẫn', link: '/vi/guide/introduction' },
-  { text: 'Khái niệm', link: '/vi/concepts/oauth2-flows' },
-  { text: 'API Reference', link: '/vi/api/server' },
-  { text: 'Ví dụ', link: '/vi/examples/authorization-code-pkce-oidc' },
+  { text: 'Tài liệu', link: '/vi/docs/introduction' },
   {
     text: 'v0.x',
     items: [
@@ -28,136 +22,170 @@ const viNav = [
   },
 ]
 
+const docsSidebar = [
+  {
+    text: 'Documentation',
+    collapsed: true,
+    items: [
+      {
+        text: 'Getting Started',
+        collapsed: true,
+        items: [
+          { text: 'Introduction', link: '/docs/introduction' },
+          { text: 'Installation', link: '/docs/installation' },
+        ],
+      },
+      { text: 'Architecture', link: '/docs/architecture' },
+    ],
+  },
+  {
+    text: 'Core Concepts',
+    collapsed: true,
+    items: [
+      { text: 'OAuth 2.0 Flows', link: '/concepts/oauth2-flows' },
+      { text: 'Config + Flow Pattern', link: '/concepts/config-flow-pattern' },
+      { text: 'Extension System', link: '/concepts/extensions' },
+      { text: 'PKCE', link: '/concepts/pkce' },
+      { text: 'OpenID Connect', link: '/concepts/oidc' },
+    ],
+  },
+  {
+    text: 'API Reference',
+    collapsed: true,
+    items: [
+      {
+        text: 'Core',
+        collapsed: true,
+        items: [
+          { text: 'Server', link: '/api/server' },
+          { text: 'Models', link: '/api/models' },
+        ],
+      },
+      {
+        text: 'RFC 6749 — Core Grants',
+        collapsed: true,
+        items: [
+          { text: 'Authorization Code', link: '/api/authorization-code' },
+          { text: 'Resource Owner Password Credentials', link: '/api/ropc' },
+          { text: 'Client Credentials', link: '/api/client-credentials' },
+          { text: 'Client Authentication', link: '/api/client-authentication' },
+        ],
+      },
+      {
+        text: 'Extensions & Related RFCs',
+        collapsed: true,
+        items: [
+          { text: 'RFC 6750 — Bearer Token', link: '/api/bearer-token' },
+          { text: 'RFC 7636 — PKCE', link: '/api/pkce' },
+          { text: 'RFC 7662 — Token Introspection', link: '/api/introspection' },
+          { text: 'RFC 9068 — JWT Access Tokens', link: '/api/jwt-access-tokens' },
+          { text: 'OIDC — ID Tokens', link: '/api/oidc' },
+        ],
+      },
+    ],
+  },
+  {
+    text: 'Examples',
+    collapsed: true,
+    items: [
+      { text: 'Authorization Code + PKCE + OIDC', link: '/examples/authorization-code-pkce-oidc' },
+      { text: 'Resource Owner Password Credentials', link: '/examples/ropc' },
+      { text: 'Client Credentials', link: '/examples/client-credentials' },
+      { text: 'JWT Access Tokens', link: '/examples/jwt-access-tokens' },
+      { text: 'Token Introspection', link: '/examples/introspection' },
+      { text: 'Custom Error Handler', link: '/examples/custom-error-handler' },
+    ],
+  },
+]
+
+const viDocsSidebar = [
+  {
+    text: 'Tài liệu',
+    collapsed: true,
+    items: [
+      {
+        text: 'Bắt đầu',
+        collapsed: true,
+        items: [
+          { text: 'Giới thiệu', link: '/vi/docs/introduction' },
+          { text: 'Cài đặt', link: '/vi/docs/installation' },
+        ],
+      },
+      { text: 'Kiến trúc', link: '/vi/docs/architecture' },
+    ],
+  },
+  {
+    text: 'Khái niệm',
+    collapsed: true,
+    items: [
+      { text: 'OAuth 2.0 Flows', link: '/vi/concepts/oauth2-flows' },
+      { text: 'Config + Flow Pattern', link: '/vi/concepts/config-flow-pattern' },
+      { text: 'Extension System', link: '/vi/concepts/extensions' },
+      { text: 'PKCE', link: '/vi/concepts/pkce' },
+      { text: 'OpenID Connect', link: '/vi/concepts/oidc' },
+    ],
+  },
+  {
+    text: 'Tham chiếu API',
+    collapsed: true,
+    items: [
+      {
+        text: 'Core',
+        collapsed: true,
+        items: [
+          { text: 'Server', link: '/vi/api/server' },
+          { text: 'Models', link: '/vi/api/models' },
+        ],
+      },
+      {
+        text: 'RFC 6749 — Core Grants',
+        collapsed: true,
+        items: [
+          { text: 'Authorization Code', link: '/vi/api/authorization-code' },
+          { text: 'Resource Owner Password Credentials', link: '/vi/api/ropc' },
+          { text: 'Client Credentials', link: '/vi/api/client-credentials' },
+          { text: 'Client Authentication', link: '/vi/api/client-authentication' },
+        ],
+      },
+      {
+        text: 'Extensions & Related RFCs',
+        collapsed: true,
+        items: [
+          { text: 'RFC 6750 — Bearer Token', link: '/vi/api/bearer-token' },
+          { text: 'RFC 7636 — PKCE', link: '/vi/api/pkce' },
+          { text: 'RFC 7662 — Token Introspection', link: '/vi/api/introspection' },
+          { text: 'RFC 9068 — JWT Access Tokens', link: '/vi/api/jwt-access-tokens' },
+          { text: 'OIDC — ID Tokens', link: '/vi/api/oidc' },
+        ],
+      },
+    ],
+  },
+  {
+    text: 'Ví dụ',
+    collapsed: true,
+    items: [
+      { text: 'Authorization Code + PKCE + OIDC', link: '/vi/examples/authorization-code-pkce-oidc' },
+      { text: 'Resource Owner Password Credentials', link: '/vi/examples/ropc' },
+      { text: 'Client Credentials', link: '/vi/examples/client-credentials' },
+      { text: 'JWT Access Tokens', link: '/vi/examples/jwt-access-tokens' },
+      { text: 'Token Introspection', link: '/vi/examples/introspection' },
+      { text: 'Custom Error Handler', link: '/vi/examples/custom-error-handler' },
+    ],
+  },
+]
+
 const enSidebar = {
-  '/guide/': [
-    {
-      text: 'Guide',
-      items: [
-        { text: 'Introduction', link: '/guide/introduction' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Architecture', link: '/guide/architecture' },
-      ],
-    },
-  ],
-  '/concepts/': [
-    {
-      text: 'Concepts',
-      items: [
-        { text: 'OAuth 2.0 Flows', link: '/concepts/oauth2-flows' },
-        { text: 'Config + Flow Pattern', link: '/concepts/config-flow-pattern' },
-        { text: 'Extension System', link: '/concepts/extensions' },
-        { text: 'PKCE', link: '/concepts/pkce' },
-        { text: 'OpenID Connect', link: '/concepts/oidc' },
-      ],
-    },
-  ],
-  '/api/': [
-    {
-      text: 'Core',
-      items: [
-        { text: 'Server', link: '/api/server' },
-        { text: 'Models', link: '/api/models' },
-      ],
-    },
-    {
-      text: 'RFC 6749 — Core Grants',
-      items: [
-        { text: 'Authorization Code', link: '/api/authorization-code' },
-        { text: 'Resource Owner Password Credentials', link: '/api/ropc' },
-        { text: 'Client Credentials', link: '/api/client-credentials' },
-        { text: 'Client Authentication', link: '/api/client-authentication' },
-      ],
-    },
-    {
-      text: 'Extensions & Related RFCs',
-      items: [
-        { text: 'RFC 6750 — Bearer Token', link: '/api/bearer-token' },
-        { text: 'RFC 7636 — PKCE', link: '/api/pkce' },
-        { text: 'RFC 7662 — Token Introspection', link: '/api/introspection' },
-        { text: 'RFC 9068 — JWT Access Tokens', link: '/api/jwt-access-tokens' },
-        { text: 'OIDC — ID Tokens', link: '/api/oidc' },
-      ],
-    },
-  ],
-  '/examples/': [
-    {
-      text: 'Examples',
-      items: [
-        { text: 'Authorization Code + PKCE + OIDC', link: '/examples/authorization-code-pkce-oidc' },
-        { text: 'Resource Owner Password Credentials', link: '/examples/ropc' },
-        { text: 'Client Credentials', link: '/examples/client-credentials' },
-        { text: 'JWT Access Tokens', link: '/examples/jwt-access-tokens' },
-        { text: 'Token Introspection', link: '/examples/introspection' },
-        { text: 'Custom Error Handler', link: '/examples/custom-error-handler' },
-      ],
-    },
-  ],
+  '/docs/': docsSidebar,
+  '/concepts/': docsSidebar,
+  '/api/': docsSidebar,
+  '/examples/': docsSidebar,
 }
 
 const viSidebar = {
-  '/vi/guide/': [
-    {
-      text: 'Hướng dẫn',
-      items: [
-        { text: 'Giới thiệu', link: '/vi/guide/introduction' },
-        { text: 'Bắt đầu', link: '/vi/guide/getting-started' },
-        { text: 'Kiến trúc', link: '/vi/guide/architecture' },
-      ],
-    },
-  ],
-  '/vi/concepts/': [
-    {
-      text: 'Khái niệm',
-      items: [
-        { text: 'OAuth 2.0 Flows', link: '/vi/concepts/oauth2-flows' },
-        { text: 'Config + Flow Pattern', link: '/vi/concepts/config-flow-pattern' },
-        { text: 'Extension System', link: '/vi/concepts/extensions' },
-        { text: 'PKCE', link: '/vi/concepts/pkce' },
-        { text: 'OpenID Connect', link: '/vi/concepts/oidc' },
-      ],
-    },
-  ],
-  '/vi/api/': [
-    {
-      text: 'Core',
-      items: [
-        { text: 'Server', link: '/vi/api/server' },
-        { text: 'Models', link: '/vi/api/models' },
-      ],
-    },
-    {
-      text: 'RFC 6749 — Core Grants',
-      items: [
-        { text: 'Authorization Code', link: '/vi/api/authorization-code' },
-        { text: 'Resource Owner Password Credentials', link: '/vi/api/ropc' },
-        { text: 'Client Credentials', link: '/vi/api/client-credentials' },
-        { text: 'Client Authentication', link: '/vi/api/client-authentication' },
-      ],
-    },
-    {
-      text: 'Extensions & Related RFCs',
-      items: [
-        { text: 'RFC 6750 — Bearer Token', link: '/vi/api/bearer-token' },
-        { text: 'RFC 7636 — PKCE', link: '/vi/api/pkce' },
-        { text: 'RFC 7662 — Token Introspection', link: '/vi/api/introspection' },
-        { text: 'RFC 9068 — JWT Access Tokens', link: '/vi/api/jwt-access-tokens' },
-        { text: 'OIDC — ID Tokens', link: '/vi/api/oidc' },
-      ],
-    },
-  ],
-  '/vi/examples/': [
-    {
-      text: 'Ví dụ',
-      items: [
-        { text: 'Authorization Code + PKCE + OIDC', link: '/vi/examples/authorization-code-pkce-oidc' },
-        { text: 'Resource Owner Password Credentials', link: '/vi/examples/ropc' },
-        { text: 'Client Credentials', link: '/vi/examples/client-credentials' },
-        { text: 'JWT Access Tokens', link: '/vi/examples/jwt-access-tokens' },
-        { text: 'Token Introspection', link: '/vi/examples/introspection' },
-        { text: 'Custom Error Handler', link: '/vi/examples/custom-error-handler' },
-      ],
-    },
-  ],
+  '/vi/docs/': viDocsSidebar,
+  '/vi/concepts/': viDocsSidebar,
+  '/vi/api/': viDocsSidebar,
+  '/vi/examples/': viDocsSidebar,
 }
 
 export default defineConfig({
@@ -174,11 +202,11 @@ export default defineConfig({
 
   locales: {
     root: {
-      label: 'English',
+      label: '🇺🇸 English',
       lang: 'en-US',
     },
     vi: {
-      label: 'Tiếng Việt',
+      label: '🇻🇳 Tiếng Việt',
       lang: 'vi-VN',
       themeConfig: {
         nav: viNav,
