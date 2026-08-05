@@ -2,7 +2,7 @@
 
 <span class="rfc-badge">RFC 7636</span> · package `rfc7636`
 
-Implements Proof Key for Code Exchange as an extension for the [Authorization Code flow](/api/authorization-code). See [PKCE](/concepts/pkce) for the conceptual explanation.
+Implements Proof Key for Code Exchange as an extension for the [Authorization Code flow](/vi/api/authorization-code). See [PKCE](/vi/concepts/pkce) for the conceptual explanation.
 
 ## Construction
 
@@ -30,8 +30,8 @@ pkce := rfc7636.New(
 cfg.RegisterExtension(pkce)
 ```
 
-`rfc7636.New(...)` implements `AuthorizationRequestValidator` (requires and stores the code challenge on `/authorize`) and `TokenRequestValidator` (verifies the code verifier on `/token`). See [Extension System](/concepts/extensions) for how these interfaces are invoked.
+`rfc7636.New(...)` implements `AuthorizationRequestValidator` (requires and stores the code challenge on `/authorize`) and `TokenRequestValidator` (verifies the code verifier on `/token`). See [Extension System](/vi/concepts/extensions) for how these interfaces are invoked.
 
 ## See also
 
-- [OIDC](/api/oidc) — commonly registered alongside PKCE on the same Authorization Code flow.
+- [OIDC](/vi/api/oidc) — commonly registered alongside PKCE on the same Authorization Code flow.

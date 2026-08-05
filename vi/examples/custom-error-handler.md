@@ -13,4 +13,4 @@ This runs whenever a call like `srv.CreateTokenResponse` or `srv.CreateAuthoriza
 
 ## Related
 
-- [Server API Reference](/api/server)
+- [Server API Reference](/vi/api/server)

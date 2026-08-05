@@ -50,7 +50,7 @@ srv.CreateTokenResponse(r, w)                // POST /token
 go get github.com/alkeyio/authkit
 ```
 
-Requires **Go 1.23+**. See the [Getting Started](/docs/installation) guide to wire up your first Authorization Code + PKCE + OIDC flow.
+Requires **Go 1.23+**. See the [Getting Started](/vi/docs/installation) guide to wire up your first Authorization Code + PKCE + OIDC flow.
 
 </div>
 

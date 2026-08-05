@@ -53,5 +53,5 @@ Same pattern, fewer managers, because Client Credentials has no user and no auth
 
 ## Where this fits
 
-- [Extension System](/concepts/extensions) covers what you register onto a `Config` beyond managers.
-- [Models](/api/models) is the reference for what each `Set*Manager` call expects.
+- [Extension System](/vi/concepts/extensions) covers what you register onto a `Config` beyond managers.
+- [Models](/vi/api/models) is the reference for what each `Set*Manager` call expects.

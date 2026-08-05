@@ -2,7 +2,7 @@
 
 <span class="rfc-badge">OpenID Connect Core</span> · package `oidc/core/authorization_code`
 
-Implements ID Token generation as an extension for the [Authorization Code flow](/api/authorization-code). See [OpenID Connect](/concepts/oidc) for the conceptual explanation of what an ID Token is and when you need one.
+Implements ID Token generation as an extension for the [Authorization Code flow](/vi/api/authorization-code). See [OpenID Connect](/vi/concepts/oidc) for the conceptual explanation of what an ID Token is and when you need one.
 
 ## Construction
 
@@ -29,9 +29,9 @@ oidc, err := oidcflow.Must(
 cfg.RegisterExtension(oidc)
 ```
 
-This implements `TokenProcessor`: after the base Authorization Code flow prepares its token response, the OIDC extension attaches a signed `id_token`. See [Extension System](/concepts/extensions).
+This implements `TokenProcessor`: after the base Authorization Code flow prepares its token response, the OIDC extension attaches a signed `id_token`. See [Extension System](/vi/concepts/extensions).
 
 ## See also
 
-- [PKCE](/api/pkce) — typically registered alongside OIDC on the same flow.
-- [JWT Access Tokens](/api/jwt-access-tokens) — a related but distinct JWT: this issues the *ID Token*, RFC 9068 issues the *access token*.
+- [PKCE](/vi/api/pkce) — typically registered alongside OIDC on the same flow.
+- [JWT Access Tokens](/vi/api/jwt-access-tokens) — a related but distinct JWT: this issues the *ID Token*, RFC 9068 issues the *access token*.

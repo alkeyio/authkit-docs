@@ -57,11 +57,11 @@ mux.HandleFunc("POST /token", func(w http.ResponseWriter, r *http.Request) {
 
 ## What each piece is doing
 
-- `clientMgr`, `authCodeMgr`, `tokenMgr` are your implementations of the `ClientManager`, `AuthCodeManager`, and `TokenManager` interfaces from [Models](/api/models).
-- `pkce` requires and validates a `code_challenge`/`code_verifier` pair per [PKCE](/concepts/pkce). Setting `AllowPlain(false)` enforces `S256`.
-- `oidc` attaches a signed `id_token` to the token response when the client requests the `openid` scope — see [OpenID Connect](/concepts/oidc).
+- `clientMgr`, `authCodeMgr`, `tokenMgr` are your implementations of the `ClientManager`, `AuthCodeManager`, and `TokenManager` interfaces from [Models](/vi/api/models).
+- `pkce` requires and validates a `code_challenge`/`code_verifier` pair per [PKCE](/vi/concepts/pkce). Setting `AllowPlain(false)` enforces `S256`.
+- `oidc` attaches a signed `id_token` to the token response when the client requests the `openid` scope — see [OpenID Connect](/vi/concepts/oidc).
 
 ## Related
 
-- [Getting Started](/docs/installation) — the same flow, explained step by step.
-- [Client Credentials](/examples/client-credentials) — for machine-to-machine calls instead.
+- [Getting Started](/vi/docs/installation) — the same flow, explained step by step.
+- [Client Credentials](/vi/examples/client-credentials) — for machine-to-machine calls instead.

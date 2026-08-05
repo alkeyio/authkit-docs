@@ -16,8 +16,8 @@ srv.CreateTokenResponse(r, w)                // POST /token
 Most Go teams building an authorization server end up in one of two places: hand-rolling RFC 6749 against the spec text, or pulling in a full identity platform when all they needed was the protocol layer. AuthKit sits in between.
 
 - **RFC-scoped packages, not a monolith.** `rfc6749`, `rfc7636`, `rfc7662`, `rfc9068` each do one thing and can be imported independently. You are not forced into a full OP/RP object graph to get PKCE validation.
-- **Config + Flow pattern.** Every grant is built the same way — `NewConfig()` → set dependencies → `Must()` — so once you've learned one flow, you've learned them all. See [Config + Flow Pattern](/concepts/config-flow-pattern).
-- **Extensions instead of inheritance.** PKCE and OIDC ID Token issuance are plain extension interfaces (`AuthorizationRequestValidator`, `TokenProcessor`, etc.) registered onto a base flow, rather than subclassed or forked flow implementations. See [Extension System](/concepts/extensions).
+- **Config + Flow pattern.** Every grant is built the same way — `NewConfig()` → set dependencies → `Must()` — so once you've learned one flow, you've learned them all. See [Config + Flow Pattern](/vi/concepts/config-flow-pattern).
+- **Extensions instead of inheritance.** PKCE and OIDC ID Token issuance are plain extension interfaces (`AuthorizationRequestValidator`, `TokenProcessor`, etc.) registered onto a base flow, rather than subclassed or forked flow implementations. See [Extension System](/vi/concepts/extensions).
 - **You own storage.** AuthKit defines the manager interfaces (`ClientManager`, `AuthCodeManager`, `TokenManager`, ...); you implement them against whatever you already use. A reference SQL implementation is included in `integrations/sql`.
 - **Fails fast, not at runtime.** `Must()` validates required dependencies at construction time, so a missing `TokenManager` is a startup error, not a 500 in production.
 
@@ -44,9 +44,9 @@ Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the
 
 ## Next steps
 
-- [Getting Started](/docs/installation) — install AuthKit and wire up your first flow.
-- [Architecture](/docs/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
-- [OAuth 2.0 Flows](/concepts/oauth2-flows) — a refresher on the grants AuthKit implements.
+- [Getting Started](/vi/docs/installation) — install AuthKit and wire up your first flow.
+- [Architecture](/vi/docs/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
+- [OAuth 2.0 Flows](/vi/concepts/oauth2-flows) — a refresher on the grants AuthKit implements.
 
 ## Contributing
 

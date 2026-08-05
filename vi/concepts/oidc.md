@@ -15,7 +15,7 @@ If your client only ever calls your own API on the user's behalf, plain OAuth 2.
 
 ## OIDC in AuthKit
 
-AuthKit implements the OIDC Authorization Code flow's ID Token issuance as an extension (`oidc/core/authorization_code`) on top of the base Authorization Code grant, following the same pattern as [PKCE](/concepts/pkce) — see [Extension System](/concepts/extensions).
+AuthKit implements the OIDC Authorization Code flow's ID Token issuance as an extension (`oidc/core/authorization_code`) on top of the base Authorization Code grant, following the same pattern as [PKCE](/vi/concepts/pkce) — see [Extension System](/vi/concepts/extensions).
 
 ```go
 oidc, _ := oidcflow.Must(
@@ -45,5 +45,5 @@ A client asks for OIDC behavior by including the `openid` scope in its `/authori
 
 ## See also
 
-- [PKCE](/concepts/pkce) — almost always registered alongside OIDC on the same flow.
-- [Authorization Code + PKCE + OIDC example](/examples/authorization-code-pkce-oidc) — full runnable setup.
+- [PKCE](/vi/concepts/pkce) — almost always registered alongside OIDC on the same flow.
+- [Authorization Code + PKCE + OIDC example](/vi/examples/authorization-code-pkce-oidc) — full runnable setup.

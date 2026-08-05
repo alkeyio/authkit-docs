@@ -26,5 +26,5 @@ Resource servers, not end-user clients. A resource server that receives a bearer
 
 ## Related
 
-- [API Reference: Token Introspection](/api/introspection)
-- [JWT Access Tokens example](/examples/jwt-access-tokens) — an alternative that avoids the introspection round-trip.
+- [API Reference: Token Introspection](/vi/api/introspection)
+- [JWT Access Tokens example](/vi/examples/jwt-access-tokens) — an alternative that avoids the introspection round-trip.
