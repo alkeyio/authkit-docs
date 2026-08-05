@@ -3,18 +3,11 @@ layout: home
 
 hero:
   name: AuthKit
-  text: OAuth 2.0 / OIDC, RFC by RFC.
   tagline: A modular authorization server library for Go. Bring only the grants and extensions you need — no full identity platform required.
-  image:
-    src: /logo.svg
-    alt: AuthKit
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/installation
-    - theme: alt
-      text: Why AuthKit
-      link: /docs/introduction
+      link: /vi/docs/introduction
     - theme: alt
       text: View on GitHub
       link: https://github.com/alkeyio/authkit
