@@ -202,7 +202,6 @@ export default defineConfig({
 
   locales: {
     root: {
-      label: '🇺🇸 English',
       lang: 'en-US',
       link: '/en/',
     },
