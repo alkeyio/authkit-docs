@@ -74,7 +74,7 @@ flow, err := authorizationcode.Must(cfg)
 srv.RegisterGrant(flow)
 ```
 
-This same shape applies to `ropc`, `client_credentials`, `rfc7662` (introspection), and every other flow — learn it once. See [Config + Flow Pattern](/concepts/config-flow-pattern) for the reasoning behind it.
+This same shape applies to `ropc`, `client_credentials`, `rfc7662` (introspection), and every other flow — learn it once. See [Config + Flow Pattern](/en/concepts/config-flow-pattern) for the reasoning behind it.
 
 ## Extension system
 
@@ -88,8 +88,8 @@ A single object can implement multiple extension interfaces and be registered on
 | `TokenRequestValidator`          | Validating `/token` request           |
 | `TokenProcessor`                 | Before writing the token response     |
 
-PKCE (`rfc7636`) and OIDC (`oidc/core/authorization_code`) are implemented as extensions and plug into the Authorization Code flow via `RegisterExtension` — a useful pattern to follow if you need to add custom claims, audience restriction, or rate limiting at the same integration points. See [Extension System](/concepts/extensions).
+PKCE (`rfc7636`) and OIDC (`oidc/core/authorization_code`) are implemented as extensions and plug into the Authorization Code flow via `RegisterExtension` — a useful pattern to follow if you need to add custom claims, audience restriction, or rate limiting at the same integration points. See [Extension System](/en/concepts/extensions).
 
 ## Models
 
-Implement the interfaces in the `models` package with your own data layer. See [Models](/api/models) for the full interface reference and `integrations/sql/` for example SQL-backed implementations.
+Implement the interfaces in the `models` package with your own data layer. See [Models](/en/api/models) for the full interface reference and `integrations/sql/` for example SQL-backed implementations.

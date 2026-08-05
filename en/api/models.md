@@ -19,6 +19,6 @@ A reference SQL implementation of these interfaces is included in `integrations/
 
 ## Where to start
 
-If you're implementing these for the first time, start with `ClientManager` and `TokenManager` — every grant needs both. Add `AuthCodeManager` if you're using [Authorization Code](/api/authorization-code), or `UserManager` if you're using [ROPC](/api/ropc).
+If you're implementing these for the first time, start with `ClientManager` and `TokenManager` — every grant needs both. Add `AuthCodeManager` if you're using [Authorization Code](/en/api/authorization-code), or `UserManager` if you're using [ROPC](/en/api/ropc).
 
 For the exact method signatures, see [`models/README.md`](https://github.com/alkeyio/authkit/blob/main/models/README.md) and [`integrations/sql/`](https://github.com/alkeyio/authkit/blob/main/integrations/sql) in the repository.

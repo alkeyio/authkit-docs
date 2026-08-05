@@ -12,7 +12,7 @@ An attacker who only intercepts the `code` from the redirect can't complete step
 
 ## PKCE in AuthKit
 
-PKCE is implemented as an extension (`rfc7636`) rather than being hard-wired into the Authorization Code flow — see [Extension System](/concepts/extensions) for why. It implements `AuthorizationRequestValidator` (to require and store the challenge) and `TokenRequestValidator` (to verify the verifier at redemption).
+PKCE is implemented as an extension (`rfc7636`) rather than being hard-wired into the Authorization Code flow — see [Extension System](/en/concepts/extensions) for why. It implements `AuthorizationRequestValidator` (to require and store the challenge) and `TokenRequestValidator` (to verify the verifier at redemption).
 
 ```go
 pkce := rfc7636.New(
@@ -48,5 +48,5 @@ RFC 9700 recommends PKCE for **all** Authorization Code clients, not only public
 
 ## See also
 
-- [OpenID Connect](/concepts/oidc) — PKCE and OIDC are commonly registered together on the same flow.
-- [RFC 7636 API Reference](/api/pkce) — package-level type reference.
+- [OpenID Connect](/en/concepts/oidc) — PKCE and OIDC are commonly registered together on the same flow.
+- [RFC 7636 API Reference](/en/api/pkce) — package-level type reference.

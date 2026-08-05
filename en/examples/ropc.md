@@ -1,7 +1,7 @@
 # Resource Owner Password Credentials
 
 ::: warning
-ROPC is intended for tightly-controlled, first-party clients only — legacy migrations, internal CLI tools — not as a general-purpose login flow. See [OAuth 2.0 Flows](/concepts/oauth2-flows) for why.
+ROPC is intended for tightly-controlled, first-party clients only — legacy migrations, internal CLI tools — not as a general-purpose login flow. See [OAuth 2.0 Flows](/en/concepts/oauth2-flows) for why.
 :::
 
 ```go
@@ -31,10 +31,10 @@ mux.HandleFunc("POST /token", func(w http.ResponseWriter, r *http.Request) {
 
 ## What each piece is doing
 
-- `userMgr` implements the `UserManager` interface — it's responsible for verifying the submitted username and password against your user store. See [Models](/api/models).
+- `userMgr` implements the `UserManager` interface — it's responsible for verifying the submitted username and password against your user store. See [Models](/en/api/models).
 - No `AuthCodeManager` is needed: there's no redirect or authorization code in this grant.
 
 ## Related
 
-- [API Reference: ROPC](/api/ropc)
-- [Authorization Code + PKCE + OIDC](/examples/authorization-code-pkce-oidc) — the preferred alternative wherever a browser is available.
+- [API Reference: ROPC](/en/api/ropc)
+- [Authorization Code + PKCE + OIDC](/en/examples/authorization-code-pkce-oidc) — the preferred alternative wherever a browser is available.

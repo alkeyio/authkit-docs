@@ -1,6 +1,6 @@
 # OAuth 2.0 Flows
 
-AuthKit implements four grant types from RFC 6749, plus the extensions and adjacent RFCs that make them production-ready. This page is a conceptual refresher; see [API Reference](/api/authorization-code) for the exact Go types.
+AuthKit implements four grant types from RFC 6749, plus the extensions and adjacent RFCs that make them production-ready. This page is a conceptual refresher; see [API Reference](/en/api/authorization-code) for the exact Go types.
 
 ## Authorization Code Grant (RFC 6749 §4.1)
 
@@ -18,7 +18,7 @@ User          Client              Auth Server
  │               │◄──access + refresh──│
 ```
 
-In AuthKit, this is `rfc6749/authorization_code`. It is almost always paired with [PKCE](/concepts/pkce) and, if you need identity rather than just authorization, [OIDC](/concepts/oidc).
+In AuthKit, this is `rfc6749/authorization_code`. It is almost always paired with [PKCE](/en/concepts/pkce) and, if you need identity rather than just authorization, [OIDC](/en/concepts/oidc).
 
 ## Resource Owner Password Credentials (RFC 6749 §4.3)
 
@@ -45,6 +45,6 @@ Every grant that involves a confidential client needs a way for that client to p
 
 Issuing a token is only half the protocol. AuthKit separately covers:
 
-- [RFC 6750](/api/bearer-token) — how bearer tokens are formatted and presented.
-- [RFC 9068](/api/jwt-access-tokens) — issuing access tokens as JWTs instead of opaque strings.
-- [RFC 7662](/api/introspection) — letting a resource server ask the authorization server whether a token is still valid.
+- [RFC 6750](/en/api/bearer-token) — how bearer tokens are formatted and presented.
+- [RFC 9068](/en/api/jwt-access-tokens) — issuing access tokens as JWTs instead of opaque strings.
+- [RFC 7662](/en/api/introspection) — letting a resource server ask the authorization server whether a token is still valid.

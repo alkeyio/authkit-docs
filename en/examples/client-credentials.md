@@ -26,7 +26,7 @@ mux.HandleFunc("POST /token", func(w http.ResponseWriter, r *http.Request) {
 
 ## Pairing with JWT access tokens
 
-Client Credentials tokens are usually consumed by other services, which makes them a good fit for [JWT Access Tokens](/api/jwt-access-tokens) — the receiving service can verify the token's signature locally instead of calling back to the authorization server for every request:
+Client Credentials tokens are usually consumed by other services, which makes them a good fit for [JWT Access Tokens](/en/api/jwt-access-tokens) — the receiving service can verify the token's signature locally instead of calling back to the authorization server for every request:
 
 ```go
 jwtGen, _ := rfc9068.MustJWTAccessTokenGenerator(
@@ -39,5 +39,5 @@ jwtGen, _ := rfc9068.MustJWTAccessTokenGenerator(
 
 ## Related
 
-- [API Reference: Client Credentials](/api/client-credentials)
-- [JWT Access Tokens example](/examples/jwt-access-tokens)
+- [API Reference: Client Credentials](/en/api/client-credentials)
+- [JWT Access Tokens example](/en/examples/jwt-access-tokens)

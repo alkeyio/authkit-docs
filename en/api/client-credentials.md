@@ -2,7 +2,7 @@
 
 <span class="rfc-badge">RFC 6749 §4.4</span> · package `rfc6749/client_credentials`
 
-Implements the Client Credentials Grant, for service-to-service calls where no end user is present. See [OAuth 2.0 Flows](/concepts/oauth2-flows#client-credentials-grant-rfc-6749-4-4).
+Implements the Client Credentials Grant, for service-to-service calls where no end user is present. See [OAuth 2.0 Flows](/en/concepts/oauth2-flows#client-credentials-grant-rfc-6749-4-4).
 
 ## Construction
 
@@ -34,5 +34,5 @@ srv.RegisterGrant(flow)
 
 ## See also
 
-- [Resource Owner Password Credentials](/api/ropc)
-- [JWT Access Tokens](/api/jwt-access-tokens) — commonly paired with Client Credentials for service identity that downstream APIs can verify without a call back to the auth server.
+- [Resource Owner Password Credentials](/en/api/ropc)
+- [JWT Access Tokens](/en/api/jwt-access-tokens) — commonly paired with Client Credentials for service identity that downstream APIs can verify without a call back to the auth server.

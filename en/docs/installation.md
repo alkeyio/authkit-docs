@@ -14,7 +14,7 @@ go get github.com/alkeyio/authkit
 
 ## 1. Implement the manager interfaces
 
-AuthKit does not persist anything for you. Every flow depends on one or more manager interfaces defined in the [`models`](/api/models) package — `ClientManager`, `AuthCodeManager`, `TokenManager`, and so on. Implement them against whatever storage you already use (Postgres, Redis, in-memory for a prototype). A reference SQL implementation ships in `integrations/sql` if you want a starting point to read or fork.
+AuthKit does not persist anything for you. Every flow depends on one or more manager interfaces defined in the [`models`](/en/api/models) package — `ClientManager`, `AuthCodeManager`, `TokenManager`, and so on. Implement them against whatever storage you already use (Postgres, Redis, in-memory for a prototype). A reference SQL implementation ships in `integrations/sql` if you want a starting point to read or fork.
 
 ```go
 type ClientManager interface {
@@ -88,7 +88,7 @@ grant, req, err := srv.ValidateConsentRequest(r, user)
 grant, req, err := srv.ValidateTokenRequest(r)
 ```
 
-See [Server](/api/server) for the full method reference.
+See [Server](/en/api/server) for the full method reference.
 
 ## 5. Handle errors
 
@@ -101,9 +101,9 @@ srv.RegisterErrorHandler(func(r *http.Request, w http.ResponseWriter, err error)
 
 ## Next steps
 
-- [Authorization Code + PKCE + OIDC example](/examples/authorization-code-pkce-oidc) — the full runnable version of what's above.
-- [Extension System](/concepts/extensions) — how PKCE and OIDC plug into a base flow, and how to add your own extension (custom claims, audience restriction, rate limiting).
-- [Models](/api/models) — the complete manager interface reference.
+- [Authorization Code + PKCE + OIDC example](/en/examples/authorization-code-pkce-oidc) — the full runnable version of what's above.
+- [Extension System](/en/concepts/extensions) — how PKCE and OIDC plug into a base flow, and how to add your own extension (custom claims, audience restriction, rate limiting).
+- [Models](/en/api/models) — the complete manager interface reference.
 
 ## Running the test suite
 

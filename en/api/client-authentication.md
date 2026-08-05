@@ -10,7 +10,7 @@ Every grant that involves a confidential client needs a way for that client to a
 | --- | --- |
 | `client_secret_basic` | Client ID and secret sent via HTTP Basic Auth on the request. |
 | `client_secret_post` | Client ID and secret sent as form parameters in the request body. |
-| `none` | No client secret — used for public clients (SPAs, native apps) that instead rely on [PKCE](/api/pkce) to prove request integrity. |
+| `none` | No client secret — used for public clients (SPAs, native apps) that instead rely on [PKCE](/en/api/pkce) to prove request integrity. |
 
 ## Usage
 
@@ -18,5 +18,5 @@ Client authentication is consumed internally by the grant flows (`authorization_
 
 ## See also
 
-- [Models](/api/models) — `ClientManager` interface reference.
-- [PKCE](/api/pkce) — the proof mechanism public clients (`none`) use instead of a secret.
+- [Models](/en/api/models) — `ClientManager` interface reference.
+- [PKCE](/en/api/pkce) — the proof mechanism public clients (`none`) use instead of a secret.

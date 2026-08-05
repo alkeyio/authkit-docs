@@ -29,13 +29,13 @@ jwtGen, err := rfc9068.MustJWTAccessTokenGenerator(
 
 | | Opaque (default, RFC 6750) | JWT (RFC 9068) |
 | --- | --- | --- |
-| Resource server can verify without a call back | No — needs [introspection](/api/introspection) | Yes — verifies the signature locally |
+| Resource server can verify without a call back | No — needs [introspection](/en/api/introspection) | Yes — verifies the signature locally |
 | Immediate revocation before expiry | Yes, since the auth server is always consulted | Only if you also run introspection or short expiries |
 | Token size | Small | Larger (carries claims) |
 
-Choose JWT access tokens when you want resource servers to validate tokens without network calls to the authorization server — most useful for [Client Credentials](/api/client-credentials) service-to-service tokens and high-throughput resource servers.
+Choose JWT access tokens when you want resource servers to validate tokens without network calls to the authorization server — most useful for [Client Credentials](/en/api/client-credentials) service-to-service tokens and high-throughput resource servers.
 
 ## See also
 
-- [OIDC](/api/oidc) — a related but distinct token: the ID Token identifies the *user*, RFC 9068 tokens authorize *API access*.
-- [Token Introspection](/api/introspection) — the opaque-token alternative to local verification.
+- [OIDC](/en/api/oidc) — a related but distinct token: the ID Token identifies the *user*, RFC 9068 tokens authorize *API access*.
+- [Token Introspection](/en/api/introspection) — the opaque-token alternative to local verification.

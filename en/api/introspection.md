@@ -36,9 +36,9 @@ srv.EndpointResponse(r, w, "introspection")
 
 ## When to use this
 
-Introspection matters most when access tokens are opaque (see [Bearer Token](/api/bearer-token)) — a resource server can't decode an opaque token itself, so it asks the authorization server. If you issue [JWT access tokens](/api/jwt-access-tokens) instead, resource servers can typically verify tokens locally via signature and skip the introspection round-trip, at the cost of not being able to immediately revoke a token before it expires.
+Introspection matters most when access tokens are opaque (see [Bearer Token](/en/api/bearer-token)) — a resource server can't decode an opaque token itself, so it asks the authorization server. If you issue [JWT access tokens](/en/api/jwt-access-tokens) instead, resource servers can typically verify tokens locally via signature and skip the introspection round-trip, at the cost of not being able to immediately revoke a token before it expires.
 
 ## See also
 
-- [JWT Access Tokens](/api/jwt-access-tokens) — the self-verifying alternative.
-- [Custom Error Handler example](/examples/custom-error-handler).
+- [JWT Access Tokens](/en/api/jwt-access-tokens) — the self-verifying alternative.
+- [Custom Error Handler example](/en/examples/custom-error-handler).

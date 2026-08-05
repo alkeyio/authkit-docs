@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 const enNav = [
-  { text: 'Docs', link: '/docs/introduction' },
+  { text: 'Docs', link: '/en/docs/introduction' },
   {
     text: 'v0.x',
     items: [
@@ -31,22 +31,22 @@ const docsSidebar = [
         text: 'Getting Started',
         collapsed: true,
         items: [
-          { text: 'Introduction', link: '/docs/introduction' },
-          { text: 'Installation', link: '/docs/installation' },
+          { text: 'Introduction', link: '/en/docs/introduction' },
+          { text: 'Installation', link: '/en/docs/installation' },
         ],
       },
-      { text: 'Architecture', link: '/docs/architecture' },
+      { text: 'Architecture', link: '/en/docs/architecture' },
     ],
   },
   {
     text: 'Core Concepts',
     collapsed: true,
     items: [
-      { text: 'OAuth 2.0 Flows', link: '/concepts/oauth2-flows' },
-      { text: 'Config + Flow Pattern', link: '/concepts/config-flow-pattern' },
-      { text: 'Extension System', link: '/concepts/extensions' },
-      { text: 'PKCE', link: '/concepts/pkce' },
-      { text: 'OpenID Connect', link: '/concepts/oidc' },
+      { text: 'OAuth 2.0 Flows', link: '/en/concepts/oauth2-flows' },
+      { text: 'Config + Flow Pattern', link: '/en/concepts/config-flow-pattern' },
+      { text: 'Extension System', link: '/en/concepts/extensions' },
+      { text: 'PKCE', link: '/en/concepts/pkce' },
+      { text: 'OpenID Connect', link: '/en/concepts/oidc' },
     ],
   },
   {
@@ -57,29 +57,29 @@ const docsSidebar = [
         text: 'Core',
         collapsed: true,
         items: [
-          { text: 'Server', link: '/api/server' },
-          { text: 'Models', link: '/api/models' },
+          { text: 'Server', link: '/en/api/server' },
+          { text: 'Models', link: '/en/api/models' },
         ],
       },
       {
         text: 'RFC 6749 — Core Grants',
         collapsed: true,
         items: [
-          { text: 'Authorization Code', link: '/api/authorization-code' },
-          { text: 'Resource Owner Password Credentials', link: '/api/ropc' },
-          { text: 'Client Credentials', link: '/api/client-credentials' },
-          { text: 'Client Authentication', link: '/api/client-authentication' },
+          { text: 'Authorization Code', link: '/en/api/authorization-code' },
+          { text: 'Resource Owner Password Credentials', link: '/en/api/ropc' },
+          { text: 'Client Credentials', link: '/en/api/client-credentials' },
+          { text: 'Client Authentication', link: '/en/api/client-authentication' },
         ],
       },
       {
         text: 'Extensions & Related RFCs',
         collapsed: true,
         items: [
-          { text: 'RFC 6750 — Bearer Token', link: '/api/bearer-token' },
-          { text: 'RFC 7636 — PKCE', link: '/api/pkce' },
-          { text: 'RFC 7662 — Token Introspection', link: '/api/introspection' },
-          { text: 'RFC 9068 — JWT Access Tokens', link: '/api/jwt-access-tokens' },
-          { text: 'OIDC — ID Tokens', link: '/api/oidc' },
+          { text: 'RFC 6750 — Bearer Token', link: '/en/api/bearer-token' },
+          { text: 'RFC 7636 — PKCE', link: '/en/api/pkce' },
+          { text: 'RFC 7662 — Token Introspection', link: '/en/api/introspection' },
+          { text: 'RFC 9068 — JWT Access Tokens', link: '/en/api/jwt-access-tokens' },
+          { text: 'OIDC — ID Tokens', link: '/en/api/oidc' },
         ],
       },
     ],
@@ -88,12 +88,12 @@ const docsSidebar = [
     text: 'Examples',
     collapsed: true,
     items: [
-      { text: 'Authorization Code + PKCE + OIDC', link: '/examples/authorization-code-pkce-oidc' },
-      { text: 'Resource Owner Password Credentials', link: '/examples/ropc' },
-      { text: 'Client Credentials', link: '/examples/client-credentials' },
-      { text: 'JWT Access Tokens', link: '/examples/jwt-access-tokens' },
-      { text: 'Token Introspection', link: '/examples/introspection' },
-      { text: 'Custom Error Handler', link: '/examples/custom-error-handler' },
+      { text: 'Authorization Code + PKCE + OIDC', link: '/en/examples/authorization-code-pkce-oidc' },
+      { text: 'Resource Owner Password Credentials', link: '/en/examples/ropc' },
+      { text: 'Client Credentials', link: '/en/examples/client-credentials' },
+      { text: 'JWT Access Tokens', link: '/en/examples/jwt-access-tokens' },
+      { text: 'Token Introspection', link: '/en/examples/introspection' },
+      { text: 'Custom Error Handler', link: '/en/examples/custom-error-handler' },
     ],
   },
 ]
@@ -175,10 +175,10 @@ const viDocsSidebar = [
 ]
 
 const enSidebar = {
-  '/docs/': docsSidebar,
-  '/concepts/': docsSidebar,
-  '/api/': docsSidebar,
-  '/examples/': docsSidebar,
+  '/en/docs/': docsSidebar,
+  '/en/concepts/': docsSidebar,
+  '/en/api/': docsSidebar,
+  '/en/examples/': docsSidebar,
 }
 
 const viSidebar = {
@@ -204,6 +204,23 @@ export default defineConfig({
     root: {
       label: '🇺🇸 English',
       lang: 'en-US',
+      link: '/en/',
+    },
+    en: {
+      label: '🇺🇸 English',
+      lang: 'en-US',
+      themeConfig: {
+        nav: enNav,
+        sidebar: enSidebar,
+        editLink: {
+          pattern: 'https://github.com/alkeyio/authkit-docs/edit/main/:path',
+          text: 'Edit this page on GitHub',
+        },
+        footer: {
+          message: 'Released under the BSD-3-Clause License.',
+          copyright: 'Copyright © 2026-present alkey.io',
+        },
+      },
     },
     vi: {
       label: '🇻🇳 Tiếng Việt',
@@ -227,25 +244,12 @@ export default defineConfig({
     logo: { light: '/logo-light.svg', dark: '/logo.svg' },
     siteTitle: false,
 
-    nav: enNav,
-    sidebar: enSidebar,
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/alkeyio/authkit' },
     ],
 
-    editLink: {
-      pattern: 'https://github.com/alkeyio/authkit-docs/edit/main/:path',
-      text: 'Edit this page on GitHub',
-    },
-
     search: {
       provider: 'local',
-    },
-
-    footer: {
-      message: 'Released under the BSD-3-Clause License.',
-      copyright: 'Copyright © 2026-present alkey.io',
     },
   },
 })
