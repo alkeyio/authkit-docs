@@ -62,7 +62,7 @@ AuthKit dành cho các đội ngũ muốn tự xây dựng và vận hành Autho
 | RFC 7636       | `rfc7636`                        | PKCE (Proof Key for Code Exchange)                                           |
 | RFC 7662       | `rfc7662`                        | Token Introspection                                                          |
 | RFC 9068       | `rfc9068`                        | JWT Access Tokens                                                            |
-| OpenID Connect | `oidc/core/authorization_code`   | ID Token generation                                                          |
+| OpenID Connect | `oidc/core/authorization_code`   |  Authorization Code Flow with OpenID Connect                                 |
 
 ## Tiếp theo
 
@@ -70,10 +70,10 @@ AuthKit dành cho các đội ngũ muốn tự xây dựng và vận hành Autho
 
 ## Tham gia phát triển
 
-Chúng tôi luôn chào đón mọi **Issue** và **Pull Request** từ cộng đồng, đặc biệt là các đóng góp về việc hỗ trợ thêm các RFC mới (chẳng hạn **RFC 8628 – Device Authorization Grant**, **RFC 7009 – Token Revocation**), các ví dụ tích hợp với những **storage backend** ngoài SQL hoặc chia sẻ kinh nghiệm triển khai AuthKit trong thực tế.
+Chúng tôi luôn chào đón mọi **Issue** và **Pull Request** từ cộng đồng, đặc biệt là các đóng góp về việc hỗ trợ thêm các RFC mới, các ví dụ tích hợp với những **storage backend** ngoài SQL hoặc chia sẻ kinh nghiệm triển khai AuthKit trong thực tế.
 
-Nếu bạn đang cân nhắc sử dụng AuthKit cho dự án của mình, hãy tạo một **Issue** để chia sẻ nhu cầu hoặc trường hợp sử dụng. Ngay cả khi chưa có Pull Request, những phản hồi này vẫn giúp chúng tôi hiểu rõ hơn nhu cầu của cộng đồng và ưu tiên lộ trình phát triển của AuthKit.
+Nếu bạn đang cân nhắc sử dụng AuthKit cho dự án của mình, hãy tạo một **[Issue](https://github.com/alkeyio/authkit/issues)** để chia sẻ nhu cầu hoặc trường hợp sử dụng. Ngay cả khi chưa có Pull Request, những phản hồi này vẫn giúp chúng tôi hiểu rõ hơn nhu cầu của cộng đồng và ưu tiên lộ trình phát triển của AuthKit.
 
 ## Giấy phép
 
-AuthKit được phát hành theo giấy phép BSD 3-Clause. Xem tệp LICENSE để biết thêm chi tiết.
+AuthKit được phát hành theo giấy phép BSD 3-Clause. Xem tệp [LICENSE](https://github.com/alkeyio/authkit?tab=BSD-3-Clause-1-ov-file) để biết thêm chi tiết.
