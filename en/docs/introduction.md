@@ -1,29 +1,53 @@
 # Introduction
 
-AuthKit is a modular OAuth 2.0 / OpenID Connect server library for Go, structured around RFC-named packages. Each package implements a single specification and can be composed independently — bring only the grants and extensions you need.
+AuthKit is a [Go](https://go.dev/) library for building [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/) Authorization Servers. It is built around modular, RFC-based packages. Each package implements a single RFC specification and can be composed independently, so you only include the grants and extensions your Authorization Server needs.
+
+## Why AuthKit?
+
+Every Authorization Server has different requirements. Some applications only need a handful of standard grants. Others need to add custom claims to tokens, while some require custom grants, extensions, or authentication flows tailored to their business logic.
+
+AuthKit is designed with extensibility and composability at its core. The library is split into modular packages, with each package implementing a single RFC specification. This lets you build an Authorization Server with only the grants and extensions your application needs — without being tied to a monolithic implementation.
+
+For example, the Authorization Code Grant exposes extension points throughout the entire flow. You can hook into request validation, authorization code processing, token request validation, token generation, and more:
 
 ```go
-srv := authkit.NewServer()
-srv.RegisterGrant(authCodeFlow)
-srv.RegisterEndpoint(introspectionFlow)
+import (
+    "github.com/alkeyio/authkit/models"
+    "github.com/alkeyio/authkit/requests"
+)
 
-srv.CreateAuthorizationResponse(r, w, user)  // GET  /authorize
-srv.CreateTokenResponse(r, w)                // POST /token
+// Implement only the interfaces you need—there is no need to implement them all.
+type myExt struct{}
+
+func (e *myExt) ValidateAuthorizationRequest(ctx context.Context, r *requests.AuthorizationRequest) error {
+    // Validate, reject, or log the request before the authorization code is issued.
+}
+
+func (e *myExt) ValidateConsentRequest(r *requests.AuthorizationRequest) error {
+    // Validate or reject the consent request before the authorization code is created.
+}
+
+func (e *myExt) ProcessAuthorizationCode(r *requests.AuthorizationRequest, authCode models.AuthorizationCode, params map[string]interface{}) error {
+    // Attach additional metadata to the authorization code before it is stored.
+}
+
+func (e *myExt) ValidateTokenRequest(ctx context.Context, r *requests.TokenRequest) error {
+    // Validate, reject, or log the request before tokens are issued.
+}
+
+func (e *myExt) ProcessToken(r *requests.TokenRequest, token models.Token, data map[string]interface{}) error {
+    // Add custom claims to the token response.
+}
+
+// Register once—AuthKit automatically detects the interfaces implemented by myExt.
+cfg.RegisterExtension(&myExt{})
 ```
 
-## Why AuthKit
-
-Most Go teams building an authorization server end up in one of two places: hand-rolling RFC 6749 against the spec text, or pulling in a full identity platform when all they needed was the protocol layer. AuthKit sits in between.
-
-- **RFC-scoped packages, not a monolith.** `rfc6749`, `rfc7636`, `rfc7662`, `rfc9068` each do one thing and can be imported independently. You are not forced into a full OP/RP object graph to get PKCE validation.
-- **Config + Flow pattern.** Every grant is built the same way — `NewConfig()` → set dependencies → `Must()` — so once you've learned one flow, you've learned them all. See [Config + Flow Pattern](/en/concepts/config-flow-pattern).
-- **Extensions instead of inheritance.** PKCE and OIDC ID Token issuance are plain extension interfaces (`AuthorizationRequestValidator`, `TokenProcessor`, etc.) registered onto a base flow, rather than subclassed or forked flow implementations. See [Extension System](/en/concepts/extensions).
-- **You own storage.** AuthKit defines the manager interfaces (`ClientManager`, `AuthCodeManager`, `TokenManager`, ...); you implement them against whatever you already use. A reference SQL implementation is included in `integrations/sql`.
-- **Fails fast, not at runtime.** `Must()` validates required dependencies at construction time, so a missing `TokenManager` is a startup error, not a 500 in production.
+Need an extension point that isn't available yet? Open a [GitHub Issue](https://github.com/alkeyio/authkit/issues) and let us know. We welcome feedback and are always looking for ways to make AuthKit more flexible for real-world use cases.
 
 ## Who this is for
 
-AuthKit is aimed at teams that need to run their own authorization server — not consume someone else's — and want the protocol correctness of a mature library without adopting an entire identity platform's data model, admin UI, or deployment footprint. If you're evaluating identity providers versus building your own, AuthKit is the "building your own" option done properly: spec-compliant primitives, your storage, your HTTP layer.
+AuthKit is built for teams that want to own their Authorization Server instead of relying on a third-party identity platform. It provides OAuth 2.0 and OpenID Connect compliant building blocks without imposing a data model, or deployment architecture. You're free to choose your storage, HTTP framework, and how AuthKit fits into your existing application.
 
 ## Supported specifications
 
@@ -44,14 +68,14 @@ Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the
 
 ## Next steps
 
-- [Getting Started](/en/docs/installation) — install AuthKit and wire up your first flow.
-- [Architecture](/en/docs/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
-- [OAuth 2.0 Flows](/en/concepts/oauth2-flows) — a refresher on the grants AuthKit implements.
+- [Getting Started](/en/docs/installation) — Install AuthKit and build your first OAuth flow.
 
 ## Contributing
 
-Issues and pull requests are welcome — especially around new RFC coverage (e.g. RFC 8628 Device Authorization Grant, RFC 7009 Token Revocation), storage backend examples beyond SQL, and real-world usage reports. If you're evaluating AuthKit for a project, opening an issue with your use case helps prioritize the roadmap even if you don't send code.
+Contributions are always welcome. Whether you're fixing a bug, improving the documentation, implementing a new RFC, or sharing how you're using AuthKit, we'd love to hear from you.
+
+Don't have a Pull Request yet? That's okay. Opening an Issue to share your use case or ideas is just as valuable—it helps us build a better AuthKit for everyone.
 
 ## License
 
-BSD-3-Clause.
+AuthKit is licensed under the BSD 3-Clause License. See the LICENSE file for details.

@@ -227,6 +227,7 @@ export default defineConfig({
       themeConfig: {
         nav: viNav,
         sidebar: viSidebar,
+        outlineTitle: 'Trên trang này',
         editLink: {
           pattern: 'https://github.com/alkeyio/authkit-docs/edit/main/:path',
           text: 'Chỉnh sửa trang này trên GitHub',

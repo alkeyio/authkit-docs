@@ -1,31 +1,55 @@
-# Introduction
+# Giới thiệu
 
-AuthKit is a modular OAuth 2.0 / OpenID Connect server library for Go, structured around RFC-named packages. Each package implements a single specification and can be composed independently — bring only the grants and extensions you need.
+AuthKit là thư viện giúp bạn xây dựng Authorization Server theo chuẩn [OAuth 2.0](https://oauth.net/2/) và [OpenID Connect](https://openid.net/) cho [Go](https://go.dev/). Thư viện được tổ chức thành các package, mỗi package hiện thực một đặc tả RFC. Các package có thể được kết hợp linh hoạt, giúp bạn chỉ cần tích hợp các grant và extension mà Authorization Server của mình thực sự cần.
+
+## Tại sao là AuthKit?
+
+Mỗi Authorization Server đều có những yêu cầu riêng. Một số hệ thống chỉ cần vài grant tiêu chuẩn. Một số cần bổ sung claim vào token. Một số khác cần grant, extension, hoặc quy trình xác thực được thiết kế riêng cho nghiệp vụ của mình.
+
+AuthKit được xây dựng với khả năng mở rộng và tính linh hoạt là nguyên tắc thiết kế cốt lõi. Thư viện được chia thành các package nhỏ, mỗi package hiện thực một đặc tả RFC. Nhờ vậy, bạn có thể xây dựng Authorization Server của riêng bạn, với những grant và extension mà bạn thực sự cần.
+
+Ví dụ, với Authorization Code Grant, bạn có thể đăng ký extension để can thiệp vào bất kỳ điểm nào trong quy trình — từ lúc nhận Authorization Request, xử lý Authorization Code, xác thực Token Request, đến khi bổ sung dữ liệu vào token trước khi phát hành:
 
 ```go
-srv := authkit.NewServer()
-srv.RegisterGrant(authCodeFlow)
-srv.RegisterEndpoint(introspectionFlow)
+import (
+    "github.com/alkeyio/authkit/models"
+    "github.com/alkeyio/authkit/requests"
+)
 
-srv.CreateAuthorizationResponse(r, w, user)  // GET  /authorize
-srv.CreateTokenResponse(r, w)                // POST /token
+// Implement bất kỳ interface nào bạn cần — không cần thiết phải implement tất cả.
+type myExt struct{}
+
+func (e *myExt) ValidateAuthorizationRequest(ctx context.Context, r *requests.AuthorizationRequest) error {
+    // Kiểm tra, từ chối hoặc ghi log trước khi auth code được phát hành.
+}
+
+func (e *myExt) ValidateConsentRequest(r *requests.AuthorizationRequest) error {
+    // Kiểm tra hoặc từ chối ở bước consent trước khi auth code được tạo.
+}
+
+func (e *myExt) ProcessAuthorizationCode(r *requests.AuthorizationRequest, authCode models.AuthorizationCode, params map[string]interface{}) error {
+    // Gắn thêm metadata vào auth code trước khi lưu.
+}
+
+func (e *myExt) ValidateTokenRequest(ctx context.Context, r *requests.TokenRequest) error {
+    // Kiểm tra, từ chối hoặc ghi log trước khi token được phát hành.
+}
+
+func (e *myExt) ProcessToken(r *requests.TokenRequest, token models.Token, data map[string]interface{}) error {
+    // Bổ sung custom claims vào token response.
+}
+
+// Đăng ký một lần — AuthKit tự phát hiện interface nào myExt implement.
+cfg.RegisterExtension(&myExt{})
 ```
 
-## Why AuthKit
+Nếu AuthKit chưa hỗ trợ điểm mở rộng mà bạn cần, hãy tạo một [GitHub Issue](https://github.com/alkeyio/authkit/issues). Chúng tôi luôn lắng nghe phản hồi và sẵn sàng bổ sung thêm tính năng phù hợp.
 
-Most Go teams building an authorization server end up in one of two places: hand-rolling RFC 6749 against the spec text, or pulling in a full identity platform when all they needed was the protocol layer. AuthKit sits in between.
+## Đối tượng sử dụng
 
-- **RFC-scoped packages, not a monolith.** `rfc6749`, `rfc7636`, `rfc7662`, `rfc9068` each do one thing and can be imported independently. You are not forced into a full OP/RP object graph to get PKCE validation.
-- **Config + Flow pattern.** Every grant is built the same way — `NewConfig()` → set dependencies → `Must()` — so once you've learned one flow, you've learned them all. See [Config + Flow Pattern](/vi/concepts/config-flow-pattern).
-- **Extensions instead of inheritance.** PKCE and OIDC ID Token issuance are plain extension interfaces (`AuthorizationRequestValidator`, `TokenProcessor`, etc.) registered onto a base flow, rather than subclassed or forked flow implementations. See [Extension System](/vi/concepts/extensions).
-- **You own storage.** AuthKit defines the manager interfaces (`ClientManager`, `AuthCodeManager`, `TokenManager`, ...); you implement them against whatever you already use. A reference SQL implementation is included in `integrations/sql`.
-- **Fails fast, not at runtime.** `Must()` validates required dependencies at construction time, so a missing `TokenManager` is a startup error, not a 500 in production.
+AuthKit dành cho các đội ngũ muốn tự xây dựng và vận hành Authorization Server của riêng mình, thay vì phụ thuộc vào dịch vụ hoặc giải pháp của bên thứ ba. Thư viện cung cấp các thành phần tuân thủ đặc tả OAuth 2.0 và OpenID Connect, nhưng không áp đặt mô hình dữ liệu, hay kiến trúc triển khai cụ thể nào. Bạn toàn quyền quyết định storage, HTTP framework, và cách tích hợp AuthKit vào hệ thống hiện có của mình.
 
-## Who this is for
-
-AuthKit is aimed at teams that need to run their own authorization server — not consume someone else's — and want the protocol correctness of a mature library without adopting an entire identity platform's data model, admin UI, or deployment footprint. If you're evaluating identity providers versus building your own, AuthKit is the "building your own" option done properly: spec-compliant primitives, your storage, your HTTP layer.
-
-## Supported specifications
+## Các đặc tả được hỗ trợ
 
 | Specification  | Package                         | Description                                                                 |
 | -------------- | -------------------------------- | ---------------------------------------------------------------------------- |
@@ -40,18 +64,16 @@ AuthKit is aimed at teams that need to run their own authorization server — no
 | RFC 9068       | `rfc9068`                        | JWT Access Tokens                                                            |
 | OpenID Connect | `oidc/core/authorization_code`   | ID Token generation                                                          |
 
-Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the roadmap — see [Contributing](#contributing).
+## Tiếp theo
 
-## Next steps
+- [Bắt đầu](/vi/docs/installation) — Cài đặt AuthKit và xây dựng luồng OAuth đầu tiên của bạn.
 
-- [Getting Started](/vi/docs/installation) — install AuthKit and wire up your first flow.
-- [Architecture](/vi/docs/architecture) — how `Server`, `Config`, `Flow`, and extensions fit together.
-- [OAuth 2.0 Flows](/vi/concepts/oauth2-flows) — a refresher on the grants AuthKit implements.
+## Tham gia phát triển
 
-## Contributing
+Chúng tôi luôn chào đón mọi **Issue** và **Pull Request** từ cộng đồng, đặc biệt là các đóng góp về việc hỗ trợ thêm các RFC mới (chẳng hạn **RFC 8628 – Device Authorization Grant**, **RFC 7009 – Token Revocation**), các ví dụ tích hợp với những **storage backend** ngoài SQL hoặc chia sẻ kinh nghiệm triển khai AuthKit trong thực tế.
 
-Issues and pull requests are welcome — especially around new RFC coverage (e.g. RFC 8628 Device Authorization Grant, RFC 7009 Token Revocation), storage backend examples beyond SQL, and real-world usage reports. If you're evaluating AuthKit for a project, opening an issue with your use case helps prioritize the roadmap even if you don't send code.
+Nếu bạn đang cân nhắc sử dụng AuthKit cho dự án của mình, hãy tạo một **Issue** để chia sẻ nhu cầu hoặc trường hợp sử dụng. Ngay cả khi chưa có Pull Request, những phản hồi này vẫn giúp chúng tôi hiểu rõ hơn nhu cầu của cộng đồng và ưu tiên lộ trình phát triển của AuthKit.
 
-## License
+## Giấy phép
 
-BSD-3-Clause.
+AuthKit được phát hành theo giấy phép BSD 3-Clause. Xem tệp LICENSE để biết thêm chi tiết.
