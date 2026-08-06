@@ -62,9 +62,7 @@ AuthKit is built for teams that want to own their Authorization Server instead o
 | RFC 7636       | `rfc7636`                        | PKCE (Proof Key for Code Exchange)                                           |
 | RFC 7662       | `rfc7662`                        | Token Introspection                                                          |
 | RFC 9068       | `rfc9068`                        | JWT Access Tokens                                                            |
-| OpenID Connect | `oidc/core/authorization_code`   | ID Token generation                                                          |
-
-Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the roadmap — see [Contributing](#contributing).
+| OpenID Connect | `oidc/core/authorization_code`   | Authorization Code Flow with OpenID Connect                                  |
 
 ## Next steps
 
@@ -74,8 +72,8 @@ Device Authorization Grant (RFC 8628) and Token Revocation (RFC 7009) are on the
 
 Contributions are always welcome. Whether you're fixing a bug, improving the documentation, implementing a new RFC, or sharing how you're using AuthKit, we'd love to hear from you.
 
-Don't have a Pull Request yet? That's okay. Opening an Issue to share your use case or ideas is just as valuable—it helps us build a better AuthKit for everyone.
+Don't have a Pull Request yet? That's okay. Opening an [Issue](https://github.com/alkeyio/authkit/issues) to share your use case or ideas is just as valuable—it helps us build a better AuthKit for everyone.
 
 ## License
 
-AuthKit is licensed under the BSD 3-Clause License. See the LICENSE file for details.
+AuthKit is licensed under the BSD 3-Clause License. See the [LICENSE](https://github.com/alkeyio/authkit?tab=BSD-3-Clause-1-ov-file) file for details.
